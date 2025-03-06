@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
-import React from 'react';
+import React, { useEffect ,useState} from 'react';
 import Navbar from '../../../components/navbar';
 import Bg from '../../../components/bg';
 import geo from '../../../assets/images/geo.jpg';
@@ -7,10 +7,33 @@ import tech from '../../../assets/images/tech.jpg';
 import science from '../../../assets/images/science.jpg';
 import { useRouter } from 'expo-router';
 import { Dimensions } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const Home = () => {
   const router = useRouter(); 
+  const [data, setData] = useState(null);
+
+  useEffect(()=>{
+    const fetchData=async()=>{
+      const login=await AsyncStorage.getItem('userdetails');
+      setData(login ? JSON.parse(login) : '');
+    
+    }
+    fetchData();
+  },[]);
+
+  const handleQuestion = async (topic) => {
+    if (data) {
+      router.push({ pathname: '/User/question', params: { topic } });
+    } else {
+      alert("Please Login First");
+      router.push('/Ver/login');
+    }
+  };
+  
+
+
   return (
     <Bg>
       <Navbar />
@@ -19,21 +42,21 @@ const Home = () => {
           <View style={styles.card}>
               <Image source={geo} style={styles.img} imageStyle={{ opacity: 0.5 }} />
               <Text style={styles.title}>Geographical Questions</Text>
-              <TouchableOpacity style={styles.button} onPress={() => router.push('/User/question')} activeOpacity={0.7}>
+              <TouchableOpacity style={styles.button} onPress={()=>handleQuestion('geographical')} activeOpacity={0.7}>
                   <Text style={styles.buttonText}>Start Now!!</Text>
                 </TouchableOpacity>
           </View>
           <View style={styles.card}>
               <Image source={tech} style={styles.img} imageStyle={{ opacity: 0.5 }} />
-              <Text style={styles.title}>Technical   Questions</Text>
-              <TouchableOpacity style={styles.button} onPress={() => router.push('/User/question')} activeOpacity={0.7}>
+              <Text style={styles.title}>Technical  Questions</Text>
+              <TouchableOpacity style={styles.button} onPress={()=>handleQuestion('technical')} activeOpacity={0.7}>
                 <Text style={styles.buttonText}>Start Now!!</Text>
               </TouchableOpacity>
           </View>
           <View style={styles.card}>
               <Image source={science} style={styles.img} imageStyle={{ opacity: 0.5 }}/>
               <Text style={styles.title}>Scientifical Questions</Text>
-              <TouchableOpacity style={styles.button} onPress={() => router.push('/User/question')} activeOpacity={0.7}>
+              <TouchableOpacity style={styles.button} onPress={()=>handleQuestion('scientifical')} activeOpacity={0.7}>
                 <Text style={styles.buttonText}>Start Now!!</Text>
               </TouchableOpacity>
           </View>
@@ -61,12 +84,12 @@ const styles = StyleSheet.create({
     marginTop: 100,
   },
   title: {
-    fontSize: windowWidth< 768 ? 28 :24,
+    fontSize: windowWidth < 768 ? 28 :18,
     fontWeight: 'bold',
     color: 'white',
     position: 'absolute',
-    top: 250,
-    marginLeft:15,
+    top: windowWidth < 768 ? 85 :250,
+    marginLeft: windowWidth < 768 ? 25 :15,
     textAlign: 'center'
   },
   img: {

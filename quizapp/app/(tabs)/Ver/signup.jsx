@@ -12,7 +12,7 @@ const Signup = () => {
 
   const handleSignup =async () => {
     try {
-      const res=await fetch('http://localhost:4040/users/signup',{
+      const res=await fetch('http://localhost:4040/auth/signup',{
         method: 'POST',
         headers: {  
           'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ const Signup = () => {
           console.log('Signup failed:', data);
     }
   } catch (error) {
-    console.error('Error signing up:', error);
+    console.log(error);    
   }
   };
 
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     margin:20,
     marginTop:windowWidth < 768 ? 150 : 280,
     marginLeft: 'auto',
-  marginRight: 'auto',
+    marginRight: 'auto',
     alignSelf: 'center',
     borderRadius:10
   },

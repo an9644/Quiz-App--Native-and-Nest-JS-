@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#17a2b8', // Similar to bg-opacity-50
+    backgroundColor: '#17a2b8', 
   },
   card: {
     backgroundColor: 'white',

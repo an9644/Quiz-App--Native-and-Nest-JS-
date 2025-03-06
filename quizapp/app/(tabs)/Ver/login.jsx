@@ -1,18 +1,43 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, Button, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import Bg from '../../../components/bg'
 import { useRouter } from 'expo-router';
 import { Dimensions } from 'react-native';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = () => {
     const router = useRouter(); 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    console.log('Logging in with:', { username, password });
-    // Add your login logic here
+  const handleLogin = async() => {
+      try {
+        if (!username || !password) {
+          alert('Please enter both username and password');
+          return;
+        }
+    
+        const res= await fetch('http://localhost:4040/auth/login',{
+          method: 'POST',
+          headers: {  
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({username, password})    
+        });
+  
+        if(!res.ok){
+          // console.log(error);
+          alert("Invalid credential") 
+          return;            
+        }else{
+          const data = await res.json();
+          await AsyncStorage.setItem('userdetails', JSON.stringify(data));
+          router.push('/User/home');
+          alert("Login Sucessful!!")      
+        }
+      } catch (error) {
+        console.log('Login Error:', error); 
+        alert(error)      }
   };
 
   return (
@@ -56,7 +81,9 @@ const styles = StyleSheet.create({
     height:windowWidth < 768 ? '50%' :'40%',
     margin:20,
     marginTop:windowWidth < 768 ? 150 : 280,
-    marginLeft: windowWidth < 768 ? 70:560,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+      alignSelf: 'center',
     borderRadius:10
   },
   ab:{
