@@ -32,7 +32,6 @@ QuizApp is a mobile application built using React Native for the frontend and Ne
 
 # ⚙️ Getting Started
 
-To get started with the *LIBRARY-MS*, follow these steps:
 
  🚀 Setting Up the Repository
 
