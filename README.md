@@ -1,30 +1,30 @@
-QuizApp
+#QuizApp
 
 📝 Overview
 
 QuizApp is a mobile application built using React Native for the frontend and NestJS with MongoDB for the backend. It allows users to sign up, log in, and participate in quizzes. User data is stored securely in the database, and login credentials are verified before granting access.
 
-🚀 Features
+#🚀 Features
 
 🔐 User Authentication (Signup & Login)
 
 💾 MongoDB Database Integration
 
+🛠️ Local Storage for User Data
+
 📱 React Native UI for Smooth User Experience
 
 🏆 Quiz Functionality (Upcoming Feature)
 
-🛠️ Local Storage for User Data
+#🛠 Tech Stack
 
-🛠 Tech Stack
-
-Frontend: React Native (Expo)
-
-Backend: NestJS
-
-Database: MongoDB
-
-State Management: Local Storage
+    Frontend: React Native (Expo)
+    
+    Backend: NestJS
+    
+    Database: MongoDB
+    
+    State Management: Local Storage
 
 
 # 💻 Tech Stack:
