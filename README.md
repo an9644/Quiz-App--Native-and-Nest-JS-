@@ -62,8 +62,4 @@ To get started with the *LIBRARY-MS*, follow these steps:
       npm install
       expo start
            ```      
- # 🔑 Key Features
  
--*User *: User can see books and their details too. <br>
--*Admin*:Admmin is the one who is adding books and their details.<br>
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
