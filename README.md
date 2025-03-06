@@ -39,39 +39,29 @@ To get started with the *LIBRARY-MS*, follow these steps:
    1. Clone the repository
       
       ```bash
-      git clone git@github.com:an9644/GetCertificate-App.git
+      git clone git@github.com:an9644/Quiz-App--Native-and-Nest-JS-.git
+      cd Quiz-App--Native-and-Nest-JS-
       ```
 # 🔧 Running Setup
  
-   * In first terminal,
+ * In first terminal,
    
    1. Install dependencies in server(backend) folder:
       
       ``` bash
+      cd backend
       npm install
-      ```
-   
-   3. Start the backend application
-      
-      ``` bash
-      npm run dev
-      ```
-    
+      npm run start
+       ```    
    *In second terminal
         
    1. Install dependencies in ui(frontend) folder:
       
       ```bash
+      cd  quizapp
       npm install
-      ```
-      
-   3. Start the frontend application
-      
-      ``` bash
-      npm run dev
-      ```
-   ---
-      
+      expo start
+           ```      
  # 🔑 Key Features
  
 -*User *: User can see books and their details too. <br>
