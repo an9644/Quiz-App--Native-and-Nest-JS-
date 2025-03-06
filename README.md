@@ -18,13 +18,13 @@ QuizApp is a mobile application built using React Native for the frontend and Ne
 
 #🛠 Tech Stack
 
-    Frontend: React Native (Expo)
+   Frontend: React Native (Expo)
+   
+   Backend: NestJS
     
-    Backend: NestJS
+   Database: MongoDB
     
-    Database: MongoDB
-    
-    State Management: Local Storage
+   State Management: Local Storage
 
 
 # 💻 Tech Stack:
