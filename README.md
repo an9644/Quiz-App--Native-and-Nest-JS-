@@ -14,7 +14,7 @@ QuizApp is a mobile application built using React Native for the frontend and Ne
 
 📱 React Native UI for Smooth User Experience
 
-🏆 Quiz Functionality (Upcoming Feature)
+🏆 Quiz Functionality
 
 # 🛠 Tech Stack
 
